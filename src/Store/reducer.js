@@ -39,5 +39,13 @@ export function reducer(state=crudState,action){
         newArr=newArr.filter((item)=>item.product_name !== action.payload)
         return {...state,crudArray: newArr}
     }
+    else if(action.type==='ADD-ARRAY'){
+        return {...state, crudArray: [...state.crudArray,action.payload]}
+    }
+    else if(action.type==='UPDATE-ARRAY'){
+        const {upName,upArray}=action.payload;
+        return {...state,
+            crudArray: state.crudArray.map((item)=> item.product_name === upName ? upArray : item)}
+    }
     return({...state})
 }
