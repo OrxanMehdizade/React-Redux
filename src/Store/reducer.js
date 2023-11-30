@@ -38,7 +38,6 @@ export function reducer(state=crudState,action){
         let newArr=[...state.crudArray]
         newArr=newArr.filter((item)=>item.product_name !== action.payload)
         return {...state,crudArray: newArr}
-
     }
     return({...state})
 }
